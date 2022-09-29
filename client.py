@@ -240,7 +240,7 @@ class NoTippingClient(object):
         """
         n = self.board_length
         check, pos = self.test(current_board_state, 10) 
-        if check: return (pos - 2 * n)
+        if check: return (pos - n)
         else:
             return (self.closest(current_board_state) - n)
 

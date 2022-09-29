@@ -242,7 +242,7 @@ class NoTippingClient(object):
         check, pos = self.test(current_board_state, 10) 
         if check: return (pos - 2 * n)
         else:
-            return (self.closest(current_board_state) - 2 * n)
+            return (self.closest(current_board_state) - n)
 
 weights = SortedDoubleList()
 

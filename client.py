@@ -211,10 +211,10 @@ class NoTippingClient(object):
     def closest(self, current_board_state):
         n = self.board_length * 2
         mid = n // 2
-        left = n - 1
-        right = 0
+        left = 0
+        right = n - 1
 
-        if not current_board_state[mid - 2]:
+        if current_board_state[mid - 2]:
             return mid - 2
         
         for i in range(mid - 1, n):

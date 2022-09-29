@@ -181,13 +181,13 @@ class NoTippingClient(object):
         return pos - n, weight
     
     def isleaf(self, current_board_state):
-        if self.left_torque(current_board_state) < 0 or self.right_torque(current_board_state) < 0:
+        if self.left_torque(current_board_state) > 0 or self.right_torque(current_board_state) < 0:
             return True
         else: return False
 
     def test(self,  current_board_state, depth):
         if not depth or self.isleaf(current_board_state):
-            if self.left_torque(current_board_state) >= 0 and self.right_torque(current_board_state) >= 0:
+            if self.left_torque(current_board_state) <= 0 and self.right_torque(current_board_state) >= 0:
                 return True, -1
             else: return False, -1
         temp = 0

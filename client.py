@@ -191,7 +191,8 @@ class NoTippingClient(object):
                 return True, -1
             else: return False, -1
         temp = 0
-        if depth % 2 == 1:
+        # print("left tor: {}, right torque: {}".format(self.left_torque(current_board_state), self.right_torque(current_board_state)))
+        if depth % 2 == 0:
             for i in range(len(current_board_state)):
                 if current_board_state[i]:
                     temp, current_board_state[i] = current_board_state[i], temp
@@ -217,7 +218,7 @@ class NoTippingClient(object):
         if current_board_state[mid - 2]:
             return mid - 2
         
-        for i in range(mid - 1, n):
+        for i in range(mid - 1, len(current_board_state)):
             if not current_board_state[i]:
                 right = i
                 break

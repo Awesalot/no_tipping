@@ -195,7 +195,7 @@ class NoTippingClient(object):
             for i in range(len(current_board_state)):
                 if current_board_state[i]:
                     temp, current_board_state[i] = current_board_state[i], temp
-                    check, _ = self.test(self, current_board_state, depth - 1)
+                    check, _ = self.test(current_board_state, depth - 1)
                     temp, current_board_state[i] = current_board_state[i], temp
                     if check: return True, i
             return False, -1
@@ -203,7 +203,7 @@ class NoTippingClient(object):
             for i in range(len(current_board_state)):
                 if current_board_state[i]:
                     temp, current_board_state[i] = current_board_state[i], temp
-                    check = self.test(self, current_board_state, depth - 1)
+                    check, _ = self.test(current_board_state, depth - 1)
                     temp, current_board_state[i] = current_board_state[i], temp
                     if not check: return True, i
             return False, -1
